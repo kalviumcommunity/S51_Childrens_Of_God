@@ -1,22 +1,26 @@
-// This line imports the Express module. The express variable is now an instance of the Express application.
-const express = require('express')
-// This line creates an Express application by calling the express() function. The app variable is now an instance of your Express application.
-const app = express()
+require("dotenv").config();
 
-// routes
-// These lines define two routes:
+const express =require("express")
+const app=express()
+const mongoose=require("mongoose")
+const {connectDB,isConnected}=require('./config/dbConn.js')
 
-//The first route ('/') responds with the text "Hello Node API" when the root URL is accessed.
-//The second route ('/ping') responds with the text "pong" when the '/ping' URL is accessed.
-//The app.get() method is used to define a route for HTTP GET requests.
+connectDB();
 
-app.get('/',(req,res)=>{
-    res.send('Hello Node API ')
+
+app.get('/ping', (req,res) =>{
+    res.send('Hello NODE API')
 })
-app.get('/ping',(req,res)=>{
-    res.send("pong")
+app.get('/home', (req,res) =>{
+    res.json({
+        message: isConnected()?"Database is connected":"Database is disconnected"
+    })
 })
-// This code starts the Express server and makes it listen on port 3000. When the server is successfully started, it logs a message to the console.
-app.listen(3000,()=>{
-    console.log(`Node API app is running on port 3000`)
-})
+
+
+
+  
+app.listen(1000, async()=>{
+    await connectDB();
+    console.log('Hey')
+});
