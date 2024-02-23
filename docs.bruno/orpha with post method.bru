@@ -1,0 +1,18 @@
+meta {
+  name: orpha with post method
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:1000/addchild
+  body: json
+  auth: none
+}
+
+body:json {
+  { "INSTITUTIONNAME" :"Sahodaran,chennai",
+      "DONORNAME" : "Ravikumar, coimbatore",
+      "AMOUNTGIVENBYDONOR" :"1,15,000"
+  }
+}
