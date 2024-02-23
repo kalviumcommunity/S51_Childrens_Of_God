@@ -4,8 +4,11 @@ const express =require("express")
 const app=express()
 const mongoose=require("mongoose")
 const {connectDB,isConnected}=require('./config/dbConn.js')
+const {childrenRouter} = require("./Routes/Children.routes.js")
 
 connectDB();
+
+app.use("/",childrenRouter)
 
 
 app.get('/ping', (req,res) =>{
