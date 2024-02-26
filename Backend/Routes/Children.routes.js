@@ -1,6 +1,6 @@
 const express = require('express');
 const childrenRouter = express.Router();
-const ChildrenModel = require("../Model/Children.model");
+const ChildrenModel = require("../Children.model");
 
 childrenRouter.get('/getallchildren', async (req, res) => {
     try {
