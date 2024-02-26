@@ -1,0 +1,17 @@
+meta {
+  name: orphan with patch
+  type: http
+  seq: 6
+}
+
+patch {
+  url: http://localhost:1000/updateuser/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+     "DONORNAME" : "Ravikumar, coimbatore"
+  }
+}

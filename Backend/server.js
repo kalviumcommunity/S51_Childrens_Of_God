@@ -3,8 +3,8 @@ require("dotenv").config();
 const express =require("express")
 const app=express()
 const mongoose=require("mongoose")
-const {connectDB,isConnected}=require('./config/dbConn.js')
-const {childrenRouter} = require("./Routes/Children.routes.js")
+const {connectDB,isConnected}=require('../config/dbConn.js')
+const {childrenRouter} = require("../Routes/Children.routes.js")
 
 connectDB();
 
