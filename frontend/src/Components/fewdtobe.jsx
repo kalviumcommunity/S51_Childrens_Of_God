@@ -26,6 +26,7 @@ const OrphanageList = () => {
     fetchData();
   }, []);
 
+  
   return (
     <div className='box'>
       <h2>List of Orphanages</h2>
