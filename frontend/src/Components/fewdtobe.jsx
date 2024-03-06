@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 
 const OrphanageList = () => {
   const [data, setData] = useState([]);
@@ -26,9 +27,9 @@ const OrphanageList = () => {
     fetchData();
   }, []);
 
-  
   return (
     <div className='box'>
+      <Link to="/Form">Add</Link>
       <h2>List of Orphanages</h2>
       <table>
         <thead>
@@ -48,6 +49,8 @@ const OrphanageList = () => {
               <td>{orphanage.DONORNAME}</td>
               <td>{orphanage.INSTITUTIONNAME}</td>
               <td>{orphanage.AMOUNTGIVENBYDONOR}</td>
+
+              
               {/* Add more columns as needed */}
             </tr>
           ))}

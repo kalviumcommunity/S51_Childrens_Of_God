@@ -10,5 +10,5 @@ const childrenDetails = new Schema({
 },{
     timestamps:true,
 })
-const Model = mongoose.model("Data",childrenDetails)
+const Model = mongoose.model("datas", childrenDetails)
 module.exports = Model
