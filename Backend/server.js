@@ -3,9 +3,13 @@ require("dotenv").config();
 const express =require("express")
 const app=express()
 const mongoose=require("mongoose")
-const {connectDB,isConnected}=require('../config/dbConn.js')
-const {childrenRouter} = require("../Routes/Children.routes.js")
-
+const cors = require("cors")
+var bodyParser = require('body-parser')
+const {connectDB,isConnected}=require('./config/dbConn.js')
+const {childrenRouter} = require("./Routes/Children.routes.js")
+app.use(cors())
+app.use(bodyParser.json())
+app.use(express.json())
 connectDB();
 
 app.use("/",childrenRouter)
@@ -23,7 +27,7 @@ app.get('/home', (req,res) =>{
 
 
   
-app.listen(1000, async()=>{
+app.listen(3000, async()=>{
     await connectDB();
     console.log('Hey')
 });

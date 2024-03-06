@@ -5,6 +5,7 @@ const ChildrenModel = require("../Children.model");
 childrenRouter.get('/getallchildren', async (req, res) => {
     try {
         const children = await ChildrenModel.find();
+        // console.log("ch", children)
         res.status(200).json(children);
     } catch (err) {
         console.log(err);
@@ -14,17 +15,7 @@ childrenRouter.get('/getallchildren', async (req, res) => {
     }
 });
 
-childrenRouter.get('/getchild/:id', async (req, res) => {
-    try {
-        const child = await ChildrenModel.findOne({ _id: req.params.id });
-        res.status(200).json(child);
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send({
-            message: "Internal server error"
-        });
-    }
-});
+
 
 childrenRouter.post('/addchild', async (req, res) => {
     try {
