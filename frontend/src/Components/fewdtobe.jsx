@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 const OrphanageList = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,14 @@ const OrphanageList = () => {
     fetchData();
   }, []);
 
+  const deletebtn =(ID)=>{
+    axios.delete(`http://localhost:3000/deleteuser/${ID}`)
+    .then(res=>{console.log(res)})
+    console.log('Deleted Data')
+    window.location.reload()
+
+  }
+
   return (
     <div className='box'>
       <Link to="/Form">Add</Link>
@@ -43,15 +52,20 @@ const OrphanageList = () => {
         </thead>
         <tbody>
           {data.map((orphanage) => (
-          
+        
               <tr key={orphanage.ID}>
               <td>{orphanage.ID}</td>
               <td>{orphanage.DONORNAME}</td>
               <td>{orphanage.INSTITUTIONNAME}</td>
               <td>{orphanage.AMOUNTGIVENBYDONOR}</td>
+              <td><Link to='/Update'>Update</Link></td>
+              <td><button onClick={(e)=>{
+                deletebtn(orphanage.ID)
+              }}>Delete</button></td>
 
               
               {/* Add more columns as needed */}
+
             </tr>
           ))}
         </tbody>

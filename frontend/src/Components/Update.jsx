@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-const Form = () => {
+const Update = () => {
   // State to manage form data
   const [formData, setFormData] = useState({
     ID:'',
@@ -18,8 +18,9 @@ const Form = () => {
  const submitIt= (e)=>{
     e.preventDefault();
     // console.log(e)
-    axios.post("http://localhost:3000/addchild",{ID:formData.ID,DONORNAME:formData.DONORNAME,INSTITUTIONNAME:formData.INSTITUTIONNAME,AMOUNTGIVENBYDONOR:formData.AMOUNTGIVENBYDONOR})
+    axios.patch(`http://localhost:3000/updateuser/${formData.ID}`,{ID:formData.ID,DONORNAME:formData.DONORNAME,INSTITUTIONNAME:formData.INSTITUTIONNAME,AMOUNTGIVENBYDONOR:formData.AMOUNTGIVENBYDONOR})
     .then(res=>{console.log(res)})
+    console.log('Updated data',formData)
  }
 
   // Function to handle changes in form fields
@@ -33,7 +34,7 @@ const Form = () => {
   console.log(formData)
   return (
     <div className="box2">
-      <h2>Orphanage Donation Form</h2>
+      <h2>UPDATE USER FORM</h2>
       <form>
       <label>
           ID:
@@ -79,4 +80,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Update;
