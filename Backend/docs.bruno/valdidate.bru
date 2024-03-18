@@ -5,7 +5,21 @@ meta {
 }
 
 post {
-  url: http://localhost:3000//addchild
-  body: none
+  url: http://localhost:3000/addchild
+  body: json
   auth: none
+}
+
+body:json {
+  {
+      "ID":1,
+      "DONORNAME": "Devasree",
+      "INSTITUTIONNAME": "rainbow",
+      "AMOUNTGIVENBYDONOR": "200000"
+  
+    
+  }
+  
+      
+  
 }
