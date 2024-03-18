@@ -5,7 +5,16 @@ meta {
 }
 
 patch {
-  url: /updateuser/:ID
-  body: none
+  url: http://localhost:3000/updateuser/1
+  body: json
   auth: none
+}
+
+body:json {
+  { 
+     "ID":1,
+      "DONORNAME": "Devasree",
+      "INSTITUTIONNAME": "rainbow",
+      "AMOUNTGIVENBYDONOR": "200000"
+  }
 }

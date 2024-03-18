@@ -27,7 +27,10 @@ const signupSchema = Joi.object({
 
 childrenRouter.post('/addchild', async (req, res) => {
     const {error, value} = signupSchema.validate(req.body, {abortEarly:false});
+// { abortEarly: false }: This is an option passed to the validate method. Setting abortEarly to false means that the validation process won't stop at the first encountered error. 
+//By default, many validation libraries stop on the first error.
 
+//  When abortEarly is set to false, the validation process continues, and all errors are collected in the error property.
 
    
     try {
