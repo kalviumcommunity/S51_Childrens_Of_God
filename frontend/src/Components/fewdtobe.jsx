@@ -4,19 +4,22 @@ import axios from 'axios';
 
 const OrphanageList = () => {
   const [data, setData] = useState([]);
+  const getCookie = (name) => {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(cookie => cookie.startsWith(name + '='));
+    if (cookieValue) {
+      return cookieValue.split('=')[1];
+    }
+    return null;
+  }
 
   const fetchData = async () => {
     try {
-      const header = new Headers({ "Access-Control-Allow-Origin": "*" });
-
-    const response = await fetch("http://localhost:3000/getallchildren", {
-        header : header,
+      const response = await axios.post("http://localhost:3000/getallchildren", {token : getCookie("token")
       });
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const result = await response.json();
+  
+      const result = response.data;
       console.log("res", result);
       setData(result);
     } catch (error) {
@@ -38,7 +41,15 @@ const OrphanageList = () => {
 
   return (
     <div className='box'>
+      <div className='add'>
       <Link to="/Form">Add</Link>
+      </div>
+
+      <div className='login'>
+      <Link to="/Login">Login</Link>
+      </div>
+      
+     
       <h2>List of Orphanages</h2>
       <table>
         <thead>
@@ -47,6 +58,8 @@ const OrphanageList = () => {
             <th>DONORNAME</th>
             <th>INSTITUTIONNAME</th>
             <th>AMOUNTGIVENBYDONOR</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
             {/* Add more columns as needed */}
           </tr>
         </thead>

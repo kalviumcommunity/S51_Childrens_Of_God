@@ -90,7 +90,43 @@ button {
   color: black;
 }
 
+.delbtn{
+  position: relative;
+  top: 50px;
+}
+
 button:hover {
   background-color: #45a049;
 }
+.add{
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  bottom: 100px;
+  
+}
+.login{
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  bottom: 100px;
 
+}
