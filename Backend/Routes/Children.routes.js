@@ -1,10 +1,27 @@
 const express = require('express');
 const childrenRouter = express.Router();
 const ChildrenModel = require("../Children.model");
-
+const jwt = require('jsonwebtoken')
 const Joi = require("joi")
+const authenticateToken = (req, res,next) => {
+    const token = req.body.token
+   
+    if (!token) {
+      next()
+      return
+    }
+  
+    jwt.verify(token,  process.env.ACCESS_TOKEN, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: 'Invalid token' });
+      }
+  
+      req.user = decoded;
+      next();
+    });
+  }
 
-childrenRouter.get('/getallchildren', async (req, res) => {
+childrenRouter.post('/getallchildren',authenticateToken, async (req, res) => {
     try {
         const children = await ChildrenModel.find();
         // console.log("ch", children)
@@ -25,7 +42,7 @@ const signupSchema = Joi.object({
 
 
 
-childrenRouter.post('/addchild', async (req, res) => {
+childrenRouter.post('/addchild',authenticateToken, async (req, res) => {
     const {error, value} = signupSchema.validate(req.body, {abortEarly:false});
 // { abortEarly: false }: This is an option passed to the validate method. Setting abortEarly to false means that the validation process won't stop at the first encountered error. 
 //By default, many validation libraries stop on the first error.
@@ -54,7 +71,7 @@ childrenRouter.post('/addchild', async (req, res) => {
     }
 });
 
-childrenRouter.patch('/updateuser/:ID', async (req, res) => {
+childrenRouter.patch('/updateuser/:ID',authenticateToken, async (req, res) => {
     const {error, value} = signupSchema.validate(req.body, {abortEarly:false});
     try {
         if (!error){
@@ -88,7 +105,7 @@ childrenRouter.patch('/updateuser/:ID', async (req, res) => {
 });
 
 
-childrenRouter.delete('/deleteuser/:ID', async (req, res) => {
+childrenRouter.delete('/deleteuser/:ID',authenticateToken, async (req, res) => {
     try {
         const deletedUser = await ChildrenModel.findOneAndDelete({ID:req.params.ID});
         res.status(200).json("deleted user");
