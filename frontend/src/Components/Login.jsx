@@ -69,6 +69,7 @@ const LoginNow = () => {
                 <div className='addbtn'>
                 <button onClick={login}>Login</button>
                 </div>
+               
                 
                 <div className='delbtn'>
                 <button onClick={deleteCook}>Log out</button>

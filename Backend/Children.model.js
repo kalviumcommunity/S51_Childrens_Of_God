@@ -5,7 +5,8 @@ const childrenDetails = new Schema({
     ID:{type:Number},
     INSTITUTIONNAME :{type:String},
     DONORNAME : {type:String},
-    AMOUNTGIVENBYDONOR : {type:String}
+    AMOUNTGIVENBYDONOR : {type:String},
+    CREATEDBY: {type:String},
 
 },{
     timestamps:true,
