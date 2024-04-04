@@ -47,7 +47,7 @@ const LoginNow = () => {
     return (
         <div className="box2">
             <h2>Orphanage Donation Form</h2>
-            <form>
+            <form id='form'>
                 <label>
                     Username:
                     <input
