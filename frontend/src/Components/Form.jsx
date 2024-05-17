@@ -71,8 +71,12 @@ const Form = () => {
             onChange={handleChange}
           />
         </label>
-        {/* Add more input fields as needed */}
+        <div className='sub'>
         <Link to ='/' onClick={submitIt}>Submit</Link>
+
+        </div>
+        {/* Add more input fields as needed */}
+        
       </form>
     </div>
     

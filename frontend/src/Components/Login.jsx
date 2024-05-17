@@ -47,7 +47,7 @@ const LoginNow = () => {
     return (
         <div className="box2">
             <h2>Orphanage Donation Form</h2>
-            <form>
+            <form id='form'>
                 <label>
                     Username:
                     <input
@@ -69,6 +69,7 @@ const LoginNow = () => {
                 <div className='addbtn'>
                 <button onClick={login}>Login</button>
                 </div>
+               
                 
                 <div className='delbtn'>
                 <button onClick={deleteCook}>Log out</button>
