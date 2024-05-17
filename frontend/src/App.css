@@ -45,6 +45,25 @@ th {
   border: 3px solid green;
  
 }
+.sub{
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  top: 0px;
+
+}
+sub:hover {
+  background-color: #45a049;
+}
 
 /* Form.css */
 
@@ -81,8 +100,7 @@ input {
 }
 
 button {
-  background-color: #4caf50;
-  padding: 12px;
+ 
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -92,7 +110,8 @@ button {
 
 .delbtn{
   position: relative;
-  top: 50px;
+  bottom: 40px;
+  left: 100px;
 }
 
 button:hover {
@@ -111,9 +130,10 @@ button:hover {
   cursor: pointer;
   border-radius: 4px;
   position: relative;
-  bottom: 100px;
+  top: 0px;
   
 }
+
 .login{
   background-color: black; 
   border: none;
@@ -127,6 +147,7 @@ button:hover {
   cursor: pointer;
   border-radius: 4px;
   position: relative;
-  bottom: 100px;
+  top: 0px;
+
 
 }
